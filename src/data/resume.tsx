@@ -1,5 +1,6 @@
+import React from "react";
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon } from "lucide-react";
+import { HomeIcon } from "lucide-react";
 import { ReactLight } from "@/components/ui/svgs/reactLight";
 import { NextjsIconDark } from "@/components/ui/svgs/nextjsIconDark";
 import { Typescript } from "@/components/ui/svgs/typescript";
@@ -167,5 +168,14 @@ export const DATA = {
     },
   ],
 
-  hackathons: [],
+  hackathons: [] as {
+    title: string;
+    dates: string;
+    location: string;
+    description: string;
+    image: string;
+    win?: string;
+    mlh?: string;
+    links: { title: string; icon: React.ReactNode; href: string }[];
+  }[],
 } as const;
