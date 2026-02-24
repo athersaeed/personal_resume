@@ -19,7 +19,7 @@ export const DATA = {
     "CS student at Wilfrid Laurier University building full-stack web apps and data-driven tools. I love crafting scalable backends and clean, interactive front-ends.",
   summary:
     "I'm a Computer Science student at [Wilfrid Laurier University](/#education) with a passion for building production-ready software. I've shipped a [live creator donation platform](https://getmeadonut.live) powered by Next.js 16, Stripe, and MongoDB, engineered relational database systems with MySQL and Python, and built data visualization tools with Matplotlib and NumPy. I'm always looking to apply my skills across the full stack — from serverless APIs to rich desktop applications.",
-  avatarUrl: "/me.png",
+  avatarUrl: "/me.jpg",
   skills: [
     { name: "React", icon: ReactLight },
     { name: "Next.js", icon: NextjsIconDark },
