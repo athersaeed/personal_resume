@@ -8,16 +8,25 @@ export function HeroSection() {
 
   return (
     <section id="hero" className="scroll-mt-32">
+      {/* SVG Clip Path Definition */}
+      <svg width="0" height="0" className="absolute">
+        <defs>
+          <clipPath id="curvy-triangle" clipPathUnits="objectBoundingBox">
+            <path d="M 0.5 0.05 C 0.8 0.05 0.95 0.5 0.95 0.8 C 0.95 0.95 0.05 0.95 0.05 0.8 C 0.05 0.5 0.2 0.05 0.5 0.05 Z" />
+          </clipPath>
+        </defs>
+      </svg>
+
       <div className="flex flex-col-reverse sm:flex-row sm:items-start sm:justify-between gap-10">
         {/* Left: text content */}
         <div className="flex-1">
           {/* Role tag */}
-          <p className="text-xs font-semibold tracking-[0.18em] uppercase text-indigo-500 mb-6">
+          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-indigo-500 mb-6">
             Software Engineer
           </p>
 
           {/* Name */}
-          <h1 className="font-heading text-6xl sm:text-7xl md:text-8xl text-[#0f0f0f] leading-[0.9] mb-8">
+          <h1 className="font-heading text-6xl sm:text-7xl md:text-[5.5rem] text-[#0f0f0f] leading-[0.9] mb-8">
             {DATA.name.split(" ").map((word, i) => (
               <span key={i} className="block">
                 {word}
@@ -75,14 +84,25 @@ export function HeroSection() {
         </div>
 
         {/* Right: profile photo */}
-        <div className="shrink-0 self-start sm:self-auto">
-          <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden ring-2 ring-gray-200 hover:ring-indigo-400 transition-all duration-300">
-            <Image
-              src="/me.jpg"
-              alt={`${DATA.name} profile photo`}
-              fill
-              className="object-cover object-top"
-              priority
+        <div className="shrink-0 self-start sm:self-auto sm:ml-auto">
+          <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 group drop-shadow-xl hover:drop-shadow-2xl transition-all duration-300">
+            <div 
+              className="w-full h-full bg-gray-100"
+              style={{ clipPath: "url(#curvy-triangle)" }}
+            >
+              <Image
+                src="/me.jpg"
+                alt={`${DATA.name} profile photo`}
+                fill
+                className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                priority
+              />
+            </div>
+            {/* Subtle glow/shadow overlay to match the unique shape */}
+            <div 
+              className="absolute inset-0 border border-black/5 mix-blend-overlay"
+              style={{ clipPath: "url(#curvy-triangle)" }}
+              aria-hidden
             />
           </div>
         </div>
