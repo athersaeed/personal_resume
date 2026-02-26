@@ -1,13 +1,5 @@
 import React from "react";
-import { Icons } from "@/components/icons";
-import { HomeIcon } from "lucide-react";
-import { ReactLight } from "@/components/ui/svgs/reactLight";
-import { NextjsIconDark } from "@/components/ui/svgs/nextjsIconDark";
-import { Typescript } from "@/components/ui/svgs/typescript";
-import { Nodejs } from "@/components/ui/svgs/nodejs";
-import { Python } from "@/components/ui/svgs/python";
-import { Postgresql } from "@/components/ui/svgs/postgresql";
-import { Docker } from "@/components/ui/svgs/docker";
+import { HomeIcon, Github, Linkedin, Twitter, Youtube, Mail, Globe } from "lucide-react";
 
 export const DATA = {
   name: "Syed Ather Saeed",
@@ -21,49 +13,49 @@ export const DATA = {
     "I'm a Computer Science student at [Wilfrid Laurier University](/#education) with a passion for building production-ready software. I've shipped a [live creator donation platform](https://getmeadonut.live) powered by Next.js 16, Stripe, and MongoDB, engineered relational database systems with MySQL and Python, and built data visualization tools with Matplotlib and NumPy. I'm always looking to apply my skills across the full stack — from serverless APIs to rich desktop applications.",
   avatarUrl: "/me.jpg",
   skills: [
-    { name: "React", icon: ReactLight },
-    { name: "Next.js", icon: NextjsIconDark },
-    { name: "TypeScript", icon: Typescript },
-    { name: "Node.js", icon: Nodejs },
-    { name: "Python", icon: Python },
-    { name: "PostgreSQL", icon: Postgresql },
-    { name: "Docker", icon: Docker },
+    { name: "React" },
+    { name: "Next.js" },
+    { name: "TypeScript" },
+    { name: "Node.js" },
+    { name: "Python" },
+    { name: "PostgreSQL" },
+    { name: "Docker" },
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
   ],
   contact: {
-    email: "syedathersaeed@example.com",
+    email: "syedathersaeed1@gmail.com",
     tel: "+1-000-000-0000",
     social: {
       GitHub: {
         name: "GitHub",
         url: "https://github.com/athersaeed",
-        icon: Icons.github,
+        icon: Github,
         navbar: true,
       },
       LinkedIn: {
         name: "LinkedIn",
         url: "https://www.linkedin.com/in/syedathersaeed/",
-        icon: Icons.linkedin,
+        icon: Linkedin,
         navbar: true,
       },
       X: {
         name: "X",
         url: "https://x.com/syedathersaeed",
-        icon: Icons.x,
+        icon: Twitter,
         navbar: false,
       },
       Youtube: {
         name: "Youtube",
         url: "#",
-        icon: Icons.youtube,
+        icon: Youtube,
         navbar: false,
       },
       email: {
         name: "Send Email",
-        url: "mailto:syedathersaeed@example.com",
-        icon: Icons.email,
+        url: "mailto:syedathersaeed1@gmail.com",
+        icon: Mail,
         navbar: false,
       },
     },
@@ -124,7 +116,7 @@ export const DATA = {
         {
           type: "Website",
           href: "https://getmeadonut.live",
-          icon: <Icons.globe className="size-3" />,
+          icon: <Globe className="size-3" />,
         },
       ],
       image: "",
@@ -142,7 +134,7 @@ export const DATA = {
         {
           type: "Source",
           href: "https://github.com/syedathersaeed/little-lemon-dbms",
-          icon: <Icons.github className="size-3" />,
+          icon: <Github className="size-3" />,
         },
       ],
       image: "",
@@ -160,7 +152,7 @@ export const DATA = {
         {
           type: "Source",
           href: "https://github.com/syedathersaeed/workout-tracker",
-          icon: <Icons.github className="size-3" />,
+          icon: <Github className="size-3" />,
         },
       ],
       image: "",

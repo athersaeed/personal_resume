@@ -1,87 +1,56 @@
-/* eslint-disable @next/next/no-img-element */
-"use client";
-import { useState } from "react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { DATA } from "@/data/resume";
-import { ChevronDown, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
 
-function LogoImage({ src, alt }: { src: string; alt: string }) {
-  const [imageError, setImageError] = useState(false);
-
-  if (!src || imageError) {
-    return (
-      <div className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border bg-muted flex-none" />
-    );
-  }
-
+export function WorkSection() {
   return (
-    <img
-      src={src}
-      alt={alt}
-      className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border overflow-hidden object-contain flex-none"
-      onError={() => setImageError(true)}
-    />
-  );
-}
+    <section id="work" className="scroll-mt-32">
+      {/* Section heading */}
+      <div className="flex items-center gap-3 mb-12">
+        <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" aria-hidden />
+        <h2 className="font-heading text-3xl text-[#0f0f0f]">Experience</h2>
+      </div>
 
-export default function WorkSection() {
-  return (
-    <Accordion type="single" collapsible className="w-full grid gap-6">
-      {DATA.work.map((work) => (
-        <AccordionItem
-          key={work.company}
-          value={work.company}
-          className="w-full border-b-0 grid gap-2"
-        >
-          <AccordionTrigger className="hover:no-underline p-0 cursor-pointer transition-colors rounded-none group [&>svg]:hidden">
-            <div className="flex items-center gap-x-3 justify-between w-full text-left">
-              <div className="flex items-center gap-x-3 flex-1 min-w-0">
-                <LogoImage src={work.logoUrl} alt={work.company} />
-                <div className="flex-1 min-w-0 gap-0.5 flex flex-col">
-                  <div className="font-semibold leading-none flex items-center gap-2">
-                    {work.company}
-                    <span className="relative inline-flex items-center w-3.5 h-3.5">
-                      <ChevronRight
-                        className={cn(
-                          "absolute h-3.5 w-3.5 shrink-0 text-muted-foreground stroke-2 transition-all duration-300 ease-out",
-                          "translate-x-0 opacity-0",
-                          "group-hover:translate-x-1 group-hover:opacity-100",
-                          "group-data-[state=open]:opacity-0 group-data-[state=open]:translate-x-0"
-                        )}
-                      />
-                      <ChevronDown
-                        className={cn(
-                          "absolute h-3.5 w-3.5 shrink-0 text-muted-foreground stroke-2 transition-all duration-200",
-                          "opacity-0 rotate-0",
-                          "group-data-[state=open]:opacity-100 group-data-[state=open]:rotate-180"
-                        )}
-                      />
-                    </span>
-                  </div>
-                  <div className="font-sans text-sm text-muted-foreground">
-                    {work.title}
-                  </div>
-                </div>
+      {/* Timeline */}
+      <div className="relative">
+        {/* Vertical rule */}
+        <div className="absolute left-0 top-2 bottom-0 w-px bg-gray-200" aria-hidden />
+
+        <div className="space-y-14">
+          {DATA.work.map((role, idx) => (
+            <div key={idx} className="relative pl-7">
+              {/* Dot */}
+              <span className="absolute left-[-4px] top-[7px] w-2 h-2 rounded-full bg-indigo-500 ring-2 ring-[#fafafa]" aria-hidden />
+
+              {/* Date */}
+              <p className="text-xs font-semibold tracking-[0.12em] uppercase text-indigo-500 mb-2">
+                {role.start} — {role.end}
+              </p>
+
+              {/* Company + location */}
+              <div className="flex flex-wrap items-baseline gap-x-3 mb-1">
+                <a
+                  href={role.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-heading text-xl text-[#0f0f0f] hover:text-indigo-500 transition-colors duration-200"
+                >
+                  {role.company}
+                </a>
+                <span className="text-sm text-gray-400">{role.location}</span>
               </div>
-              <div className="flex items-center gap-1 text-xs tabular-nums text-muted-foreground text-right flex-none">
-                <span>
-                  {work.start} - {work.end ?? "Present"}
-                </span>
-              </div>
+
+              {/* Title */}
+              <p className="text-sm font-semibold text-gray-600 mb-3">
+                {role.title}
+              </p>
+
+              {/* Description */}
+              <p className="text-gray-500 leading-relaxed text-[15px]">
+                {role.description}
+              </p>
             </div>
-          </AccordionTrigger>
-          <AccordionContent className="p-0 ml-13 text-xs sm:text-sm text-muted-foreground">
-            {work.description}
-          </AccordionContent>
-        </AccordionItem>
-      ))}
-    </Accordion>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
-
